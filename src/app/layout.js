@@ -1,6 +1,7 @@
 import { Source_Sans_3, Signika } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
 const sourceSans3 = Source_Sans_3({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
             {children}
           </div>
         </main>
+        <Footer />
       </body>
     </html>
   );
