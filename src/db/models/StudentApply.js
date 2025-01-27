@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const defType = {
+export const defType = {
     type: String,
     required: true
 }
