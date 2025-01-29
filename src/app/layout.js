@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 
-const sourceSans3 = Source_Sans_3({
+export const sourceSans3 = Source_Sans_3({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500",]
 })
@@ -23,15 +23,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-gray-100">
       <body className={`${sourceSans3.className} antialiased`}>
-        <Header />
-        <main className="min-h-screen bg-gray-100">
-          <div className="container mx-auto">
-            {children}
-          </div>
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

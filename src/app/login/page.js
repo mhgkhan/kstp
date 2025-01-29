@@ -3,7 +3,7 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-      this is apply page 
+      this is login page 
     </div>
   )
 }

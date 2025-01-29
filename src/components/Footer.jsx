@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <footer className='w-full md:px-0 px-2 bg-cyan-900 py-2'>
         <div className="container mx-auto">
-            <div className="flex items-center justify-around py-3 flex-wrap">
+            <div className="flex md:flex-row flex-col  items-center justify-around py-3 flex-wrap">
                 <Logo />
-                <div className="content-foote">
+                <div className="content-foote md:mt-auto mt-3">
                     <h4 className="text-xl font-bold text-white">Social Links </h4>
                     <div className="links flex flex-wrap gap-2 mt-2">
                     <Link href={'/'} className='text-xl'><FaFacebook className=' text-white' /></Link>

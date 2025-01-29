@@ -31,18 +31,17 @@ const Header = () => {
                 <nav className={`md:w-auto w-full md:h-auto h-0 md:overflow-auto transition-all duration-300 overflow-hidden ${openedSidebar ? "md:h-auto h-[300px]" : "md:h-auto h-0"}`}>
                     <ul className="flex w-full md:flex-row flex-col items-end justify-center gap-2 md:mt-0 mt-2">
                         <li className='md:w-auto w-full'>
-                            <Link href={"/"} className={` md:w-auto w-full block p-2 text-white hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/"?"bg-gray-100 text-cyan-900":""}`}>HOME</Link>
+                            <Link href={"/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>HOME</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/apply"} className={` md:w-auto w-full block p-2 text-white hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/apply"?"bg-gray-100 text-cyan-900":""}`}>APPLY</Link>
+                            <Link href={"/candidate/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/candidate"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Candidate</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/rollno"} className={` md:w-auto w-full block p-2 text-white hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/rollno"?"bg-gray-100 text-cyan-900":""}`}>ROLLNO</Link>
+                            <Link href={"/institute"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/institute"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Institute</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/result"} className={` md:w-auto w-full block p-2 text-white hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/result"?"bg-gray-100 text-cyan-900":""}`}>RESULT</Link>
+                            <Link href={"/admin"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/admin"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Admin</Link>
                         </li>
-
                     </ul>
                 </nav>
 
