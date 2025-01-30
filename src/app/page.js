@@ -40,8 +40,8 @@ export default function Home() {
 
                 <div className="institutes-list flex flex-wrap items-center justify-center gap-5 mt-3">
 
-                  {Array.from([1, 2, 3]).map((ele, ind) => <div key={ind} className="institute-card bg-white shadow-md rounded-md p-3 m-2 w-[300px]">
-                    <Image src="/kaaj.png" alt="Khyber afghan english language institute" className="w-20 mx-auto" width={200} height={200} />
+                  {Array.from([1, 2, 3]).map((ele, ind) => <div key={ind} className=" institute-card bg-white hover:bg-cyan-900 cursor-pointer hover:border hover:border-white horver:border-1 hover:text-white shadow-md rounded-md p-3 m-2 w-[300px]">
+                    <Image src="/kaeli.png" alt="Khyber afghan english language institute" className="w-20 mx-auto bg-white rounded-full" width={200} height={200} />
                     <h3 className="text-center text-lg font-bold text-black mt-2">Khyber Afghan English Language Institute Jamrud</h3>
                   </div>
                   )}

@@ -4,3 +4,6 @@
 
 
 
+.institutes-list:hover.institutes-list *{
+    color: white;
+}
