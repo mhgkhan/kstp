@@ -40,9 +40,13 @@ export default function Home() {
 
                 <div className="institutes-list flex flex-wrap items-center justify-center gap-5 mt-3">
 
-                  {Array.from([1, 2, 3]).map((ele, ind) => <div key={ind} className=" institute-card bg-white hover:bg-cyan-900 cursor-pointer hover:border hover:border-white horver:border-1 hover:text-white shadow-md rounded-md p-3 m-2 w-[300px]">
-                    <Image src="/kaeli.png" alt="Khyber afghan english language institute" className="w-20 mx-auto bg-white rounded-full" width={200} height={200} />
-                    <h3 className="text-center text-lg font-bold text-black mt-2">Khyber Afghan English Language Institute Jamrud</h3>
+                  {Array.from([1, 2, 3]).map((ele, ind) => <div key={ind} className=" group relative bg-white hover:bg-cyan-900 cursor-pointer hover:border hover:border-white horver:border-1 hover:text-white shadow-md rounded-md p-3 m-2 w-[300px]">
+                    <div className="relative w-full h-full">  <Image src="/kaeli.png" alt="Khyber afghan english language institute" className="w-20 mx-auto bg-white rounded-full" width={200} height={200} />
+                      <h3 className="text-center text-lg font-bold text-black group-hover:text-white mt-2">Khyber Afghan English Language Institute Jamrud</h3>
+                    </div>
+                    {/* <div className="w-full h-full rounded-md flex items-center justify-center absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <Link href="/institute/1" className="text-black font-bold">View Details</Link>
+                    </div> */}
                   </div>
                   )}
                 </div>
