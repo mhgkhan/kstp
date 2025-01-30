@@ -21,8 +21,8 @@ export default function Home() {
                   </p>
 
                   <div className="buttons-container md:mx-0 mx-auto flex items-start flex-wrap justify-start gap-4 md:mt-5 mt-3">
-                    <Link href={"/login"} className="md:p-4 p-3 w-auto rounded-md hover:bg-cyan-950 bg-cyan-800 text-yellow-500 font-bold"> Candidate Login </Link>
-                    <Link href={"/tests"} className="md:p-4 p-3 w-auto rounded-md hover:bg-cyan-950 bg-cyan-800 text-yellow-500 font-bold"> Open Tests </Link>
+                    <Link href={"/login"} className="md:p-4 p-3 w-auto rounded-md hover:bg-cyan-950 bg-cyan-800 text-yellow-500 font-bold mx-1"> Candidate Login </Link>
+                    <Link href={"/tests"} className="md:p-4 p-3 w-auto rounded-md hover:bg-cyan-950 bg-cyan-800 text-yellow-500 font-bold mx-1"> Open Tests </Link>
                   </div>
                 </div>
               </div>
