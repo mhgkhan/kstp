@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import { Signika_Font } from "./layout";
 import Header from "@/components/Header";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -31,14 +32,26 @@ export default function Home() {
 
           <section className="w-full bg-white mt-5 my-3">
             <div className="container mx-auto sm:p-2">
-              <div className="institutes-area py-5">
+              <div className="institutes-area py-5 md:px-0 px-2">
                 <h2 className="md:text-4xl text-3xl text-black font-bold">Institutes with us</h2>
                 <p className="text-gray-600 text-lg my-3">
                   Bellow are the institues that are working with us to provide the best testing experience to their students.
                 </p>
+
+                <div className="institutes-list flex flex-wrap items-center justify-center gap-5 mt-3">
+
+                  {Array.from([1, 2, 3]).map((ele, ind) => <div key={ind} className="institute-card bg-white shadow-md rounded-md p-3 m-2 w-[300px]">
+                    <Image src="/kaaj.png" alt="Khyber afghan english language institute" className="w-20 mx-auto" width={200} height={200} />
+                    <h3 className="text-center text-lg font-bold text-black mt-2">Khyber Afghan English Language Institute Jamrud</h3>
+                  </div>
+                  )}
+                </div>
+
               </div>
             </div>
           </section>
+
+
         </article>
       </main>
       <Footer />
