@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min:p-0 p-2">
+      <main>
         <section className="w-full bg-cyan-900">
-          <div className="container mx-auto">
+          <div className="container mx-auto sm:p-2">
             <div className="flex flex-col items-center justify-center py-20">
               <h1 className={`text-5xl font-bold text-white ${Signika_Font.className}`}>WELCOME TO KSTP</h1>
               <h2 className={`text-4xl font-bold text-white ${Signika_Font.className}`}>KHYBER STUDENTS TESTING PORTAL</h2>
@@ -26,7 +26,7 @@ export default function Home() {
         </section>
 
         <section className="w-full bg-white mt-5 my-3">
-          <div className="container mx-auto">
+          <div className="container mx-auto sm:p-2">
            <div className="institutes-area py-5">
            <h2 className="text-4xl text-black font-bold">Institutes with us</h2>
             <p className="text-gray-600 text-lg my-3">
