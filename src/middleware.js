@@ -37,7 +37,7 @@ export async function middleware(request) {
             return NextResponse.next();
         }
         else {
-            return NextResponse.redirect(new URL("/login", request.url));
+            return NextResponse.redirect(new URL("/institutelogin", request.url));
         }
     }
 
