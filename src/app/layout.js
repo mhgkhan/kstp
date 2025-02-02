@@ -11,8 +11,6 @@ export const Signika_Font = Signika({
   weight: ["600", "700"]
 })
 
-
-
 export const metadata = {
   title: "KSTP || KHYBER STUDENT TESTING PORTAL",
   description: "KSTP is a student testing portal for Khyber students",
