@@ -13,7 +13,7 @@ export default function Home() {
           <section className="w-full bg-cyan-900">
             <div className="container mx-auto flex md:flex-row-reverse flex-col items-start justify-between">
               <div className="md:p-0 p-2 flex md:flex-row-reverse flex-col items-start justify-between">
-                <object role="Hero" aria-labelledby="label" data="Hero.svg" type="image/svg+xml"  className="md:w-[45%] w-[70%] mx-auto"></object>
+                <object role="banner" aria-labelledby="label" data="Hero.svg" type="image/svg+xml"  className="md:w-[45%] w-[70%] mx-auto"></object>
                 <div className="flex flex-col md:text-left md:items-start justify-center md:py-20 py-2 md:w-[50%] w-[97%] md:mx-0 mx-auto">
                   <h1 className={`md:text-5xl text-4xl font-bold text-white md:text-left text-center ${Signika_Font.className}`}>WELCOME TO KSTP</h1>
                   <h2 className={`md:text-4xl text-3xl font-bold text-white md:text-left text-center ${Signika_Font.className}`}>KHYBER STUDENTS TESTING PORTAL</h2>
