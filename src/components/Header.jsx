@@ -24,7 +24,7 @@ const Header = () => {
                 <div className="top-sidebar flex items-end justify-between md:w-auto w-full">
                     <Logo />
                     <div className="menuButton md:hidden">
-                        <button onClick={() => setOpenedSidebar(!openedSidebar)} className='cursor-pointer shadow-md shadow-cyan-900 hover:bg-cyan-700 hover:text-white  p-2 bg-white rounded-md text-3xl'>{openedSidebar ? <GrClose /> : <GrMenu />}</button>
+                        <button role='button' title='Open Menu' onClick={() => setOpenedSidebar(!openedSidebar)} className='cursor-pointer shadow-md shadow-cyan-900 hover:bg-cyan-700 hover:text-white  p-2 bg-white rounded-md text-3xl'>{openedSidebar ? <GrClose /> : <GrMenu />}</button>
                     </div>
                 </div>
 
