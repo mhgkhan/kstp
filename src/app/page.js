@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import { Signika_Font } from "./layout";
 import Header from "@/components/Header";
 import Link from "next/link";
-import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Home() {
