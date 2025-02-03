@@ -31,16 +31,16 @@ const Header = () => {
                 <nav className={`md:w-auto w-full md:h-auto h-0 md:overflow-auto transition-all duration-300 overflow-hidden ${openedSidebar ? "md:h-auto h-[300px]" : "md:h-auto h-0"}`}>
                     <ul className="flex w-full md:flex-row flex-col items-end justify-center gap-2 md:mt-0 mt-2">
                         <li className='md:w-auto w-full'>
-                            <Link href={"/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>HOME</Link>
+                            <Link aria-label='Home' href={"/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>HOME</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/candidate/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/candidate"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Candidate</Link>
+                            <Link aria-label='Candidate' href={"/candidate/"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/candidate"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Candidate</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/institute"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/institute"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Institute</Link>
+                            <Link aria-label='Institute' href={"/institute"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/institute"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Institute</Link>
                         </li>
                         <li className='md:w-auto w-full'>
-                            <Link href={"/admin"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/admin"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Admin</Link>
+                            <Link aria-label='Admin' href={"/admin"} className={` md:w-auto w-full block p-2 hover:text-gray-900 hover:bg-gray-100 font-bold rounded-sm text-center ${pathname=="/admin"?"bg-gray-100 text-cyan-900":"bg-cyan-900 text-white"}`}>Admin</Link>
                         </li>
                     </ul>
                 </nav>
