@@ -7,13 +7,12 @@ export default function ProfileLayout({ children }) {
     return (
         <main className="min-h-full">
             <ProfileHeader />
-
             <div className="w-full h-full flex items-start justify-between gap-2l">
                 <ProfileSidebar />
                 <section className="w-full h-full p-2">{children}  </section>
             </div>
-
             <Footer />
         </main>
     )
 }
+

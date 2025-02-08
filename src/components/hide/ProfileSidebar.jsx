@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { FaArrowLeft, FaArrowRight, FaDashcube, FaPencilAlt, FaUser } from 'react-icons/fa'
-import { GrDashboard, GrEdit, GrPin, GrStatusInfo, GrTest } from 'react-icons/gr'
+import { FaArrowLeft, FaArrowRight, FaCircleNotch, FaCopy } from 'react-icons/fa'
+import { GrDashboard, GrEdit, } from 'react-icons/gr'
 
 const ProfileSidebar = () => {
 
@@ -16,20 +16,20 @@ const ProfileSidebar = () => {
             </span>
 
             <div className="mt-5">
-                <Link href={'/'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                <Link href={'/profile'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                     <GrDashboard className='text-2xl' />
                     {openedSidebar ? "Dashboard" : ""}
                 </Link>
-                <Link href={'/'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                <Link href={'/profile/personalinfo'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                     <GrEdit className='text-2xl' />
                     {openedSidebar ? "Edit Info" : ""}
                 </Link>
-                <Link href={'/'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
-                    <FaPencilAlt className='text-2xl' />
+                <Link href={'/profile/apply;'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                    <FaCopy className='text-2xl' />
                     {openedSidebar ? "Test Apply" : ""}
                 </Link>
-                <Link href={'/'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
-                    <GrStatusInfo className='text-2xl' />
+                <Link href={'/profile/applications'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                    <FaCircleNotch className='text-2xl' />
                     {openedSidebar ? "Applications" : ""}
                 </Link>
             </div>

@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to KSTP (KHYBER STUDENTS TESTING PORTAL)
+A complete project for the students of district khyber to apply for any test easily for free.
 
-## Getting Started
+## Features for student (candidate)
+<ol>
+    <li> Apply for new tests, launches by institute </li>
+    <li> Download test roll number slips easily </li>
+    <li> Student check their test result easily </li>
+    <li> Signup (register) and Signin (login) easily </li>
+    <li> Student (candidate) Profile with complete personal informations </li>
+</ol>
+<br/>
 
-First, run the development server:
+## Features for Institue
+<ol>
+    <li> Institute can register or login their profile easily </li>
+    <li> Access their Launched Test Candiates (if applied ) </li>
+    <li> Easily verify student if they are eligible </li>
+    <li> Complete Admin Management </li>
+</ol>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## We provide 
+<ul>
+    <li> Exam (test) Halls </li>
+    <li> Test preparation </li>
+</ul>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+<br />
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+# OUR DEVELOPERS USES
+Nextjs &nbsp; <b> UI </b>  <br/>
+Nodejs &nbsp; <b> Backend </b>  <br/>
+MongoDB &nbsp; <b> Database </b>  <br/>
+JWT &nbsp; <b> Authentication </b>  <br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Contact us!
+<a href="https://facebook.com/mhghazna" target="_blank"> Facebook </a>
+&nbsp; &nbsp; 
+<a href="mailto:muhammadhasnainghazna@gmail.com" target="_blank"> Email </a>
+&nbsp; &nbsp; 
+<a href="https://wa.me+923251857693" target="_blank"> Whatsapp </a>
