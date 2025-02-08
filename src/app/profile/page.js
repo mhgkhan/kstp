@@ -2,7 +2,8 @@ import React from 'react'
 
 const page = () => {
   return <div>
-    dashboard page 
+    <h1 className='text-4xl text-black'>Dashboard </h1>
+  
   </div>
 }
 

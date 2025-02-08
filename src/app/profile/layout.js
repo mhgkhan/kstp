@@ -2,19 +2,18 @@
 import Footer from "@/components/Footer";
 import ProfileHeader from "@/components/hide/ProfileHeader";
 import ProfileSidebar from "@/components/hide/ProfileSidebar";
-import { Fragment } from "react";
 
 export default function ProfileLayout({ children }) {
     return (
-        <Fragment>
+        <main className="min-h-full">
             <ProfileHeader />
 
-            <main className="w-full flex items-center justify-between gap-2">
+            <div className="w-full h-full flex items-start justify-between gap-2l">
                 <ProfileSidebar />
-                <section className="main w-[80%]">{children}  </section>
-            </main>
+                <section className="w-full h-full p-2">{children}  </section>
+            </div>
 
             <Footer />
-        </Fragment>
+        </main>
     )
 }
