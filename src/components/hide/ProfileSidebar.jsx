@@ -24,7 +24,7 @@ const ProfileSidebar = () => {
                     <GrEdit className='text-2xl' />
                     {openedSidebar ? "Edit Info" : ""}
                 </Link>
-                <Link href={'/profile/apply;'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                <Link href={'/profile/apply'} className='my-3 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                     <FaCopy className='text-2xl' />
                     {openedSidebar ? "Test Apply" : ""}
                 </Link>
