@@ -1,4 +1,3 @@
-
 import Footer from "@/components/Footer";
 import ProfileHeader from "@/components/hide/ProfileHeader";
 import ProfileSidebar from "@/components/hide/ProfileSidebar";
@@ -15,4 +14,3 @@ export default function ProfileLayout({ children }) {
         </main>
     )
 }
-
