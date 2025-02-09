@@ -10,7 +10,7 @@ const ProfileSidebar = () => {
     const [openedSidebar, setOpenedSidebar] = useState(false)
 
     return (
-        <aside className={`sidebar transition-all duration-200 bg-cyan-900 h-full p-2 flex items-center justify-start flex-col gap-3 ${openedSidebar ? "md:w-[150px]" : "w-[80px]"}`}>
+        <div className={`sidebar transition-all duration-200 bg-cyan-900 h-full p-2 flex items-center justify-start flex-col gap-3 ${openedSidebar ? "md:w-[150px]" : "w-[80px]"}`}>
             <span className="w-full block openclosee-sidebar cursor-pointer hover:bg-gray-300 text-left p-3 bg-white rounded-md" onClick={() => setOpenedSidebar(!openedSidebar)}>
                 {openedSidebar ? <FaArrowRight /> : <FaArrowLeft />}
             </span>
@@ -33,7 +33,7 @@ const ProfileSidebar = () => {
                     {openedSidebar ? "Applications" : ""}
                 </Link>
             </div>
-        </aside>
+        </div> 
     )
 }
 
