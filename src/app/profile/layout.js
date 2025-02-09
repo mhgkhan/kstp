@@ -5,7 +5,7 @@ import ProfileSidebar from "@/components/hide/ProfileSidebar";
 
 export default function ProfileLayout({ children }) {
     return (
-        <main style={{height:"100vh !important"}}>
+        <main className="min-h-screen">
             <ProfileHeader />
             <div className="w-full h-full flex items-start justify-between gap-2l">
                 <ProfileSidebar />
