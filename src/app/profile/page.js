@@ -6,6 +6,7 @@ import { CgKey, CgPassword, CgProfile } from "react-icons/cg"
 import { FaPaperPlane, FaTrophy, FaUserEdit } from 'react-icons/fa'
 import { TiTickOutline } from "react-icons/ti";
 import {AiOutlineLoading3Quarters} from "react-icons/ai"
+import SectionHeading from '@/components/ui/SectionHeading'
 
 const page = () => {
   return <div>
@@ -25,7 +26,8 @@ const page = () => {
 
     <section className='my-2 w-full bg-white' >
       <div className='container mx-auto'>
-        <h1 className='md:text-4xl text-2xl font-bold my-2 p-2'>Quick Links </h1>
+        {/* <h1 className='md:text-4xl text-2xl font-bold my-2 p-2'>Quick Links </h1> */}
+        <SectionHeading heading={"Quick Links" } paragraph={"List of the links to access pages quickly."} />
 
         <div className='blocks flex flex-wrap items-center justify-start gap-1'>
           <Link href={"/profile"} className='text-xl text-white hover:bg-cyan-900 md:w-[200px] w-[100px] text-center bg-cyan-800 rounded-md shadow-md shadow-cyan-600 m-1 mx-auto p-3 flex items-center justify-center flex-col'>
@@ -50,7 +52,8 @@ const page = () => {
 
     <section className="my-2 w-full bg-white mt-4">
       <div className="container mx-auto">
-        <h1 className='md:text-4xl text-2xl font-bold my-2 p-2'>Analytics </h1>
+        {/* <h1 className='md:text-4xl text-2xl font-bold my-2 p-2'>Analytics </h1> */}
+        <SectionHeading heading={"Analytics" } paragraph={"Your recent work and achievements"} />
         <div className="blocks flex flex-wrap items-center justify-start gap-1">
         <Link href={"/profile"} className='text-xl text-cyan-900 hover:text-white bg-cyan-100 hover:bg-cyan-900 md:w-[350px] w-[95%] text-center rounded-md shadow-md shadow-cyan-600 m-1 mx-auto p-3 flex items-center justify-center flex-col'>
             <span className='text-5xl text-cyan-500'> <AiOutlineLoading3Quarters />   10+ </span>
