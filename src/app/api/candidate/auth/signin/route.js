@@ -19,18 +19,30 @@ export async function POST(request) {
 
             // checking if user is exists in the database or not 
             const checkUserExists = await checkUserExistssByCnic(cnic);
+
+
             if (checkUserExists.error) return serverErrResponse(checkUserExists.message);
+
             else {
 
                 if (!checkUserExists.success) return apiErrResponse(false, 400, "User with this cnic not exists");
                 else {
 
 
+
+
                     // checking if the user password is mathing or not 
                     const checkingPassword = await bcrypt.compare(password, checkUserExists.data.password);
 
+
+
                     if (!checkingPassword) return apiErrResponse(false, 400, "Password is incorrect!");
+
+
+
                     else {
+
+
                         const response = new NextResponse();
                         const { _id, cnic, fullname } = checkUserExists.data;
                         // generate token 
@@ -39,20 +51,9 @@ export async function POST(request) {
 
                         return apiSuccessResponse(true, 200, "Signin sucessfully", { token })
                     }
-
-
-
                 }
-
-
             }
-
-
         }
-
-
-
-
 
     } catch (error) {
         return serverErrResponse(error);
