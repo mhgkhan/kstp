@@ -2,7 +2,7 @@ import adminModel from "@/utils/models/admin/AdminModel";
 
 const { default: studentAccount } = require("@/utils/models/StudentAccount")
 
-export const checkExistsByCnic = async cnic => {
+export const checkUserExistssByCnic = async cnic => {
     try {
         // checking user 
         const checkUser = await studentAccount.findOne({ cnic });
@@ -22,7 +22,7 @@ export const checkExistsByCnic = async cnic => {
 }
 
 
-export const checkExistsById = async id => {
+export const checkUserExistssById = async id => {
     try {
         // checking user 
         const checkUser = await studentAccount.findOne({ _id: id });
