@@ -7,9 +7,11 @@ export const defType = {
 }
 const studentApplyStr = mongoose.Schema({
 
-    stdName: defType,
+    accountId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     fatherName: defType,
-    cnic: defType,
     gender: defType,
     fatherPhone: defType,
     dateOfBirth: defType,
@@ -25,7 +27,6 @@ const studentApplyStr = mongoose.Schema({
     schoolRollNo: defType,
     schoolAddress: defType,
 
-    testId: defType,
     paymentVerified: {
         type: Boolean,
         default: false
