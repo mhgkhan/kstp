@@ -1,3 +1,4 @@
+import connectDB from "@/utils/db/connectDB";
 import { checkUserExistssByCnic } from "@/utils/db/filters/checkExists";
 import { apiErrResponse, serverErrResponse } from "@/utils/responses/errResponses";
 import { apiSuccessResponse } from "@/utils/responses/successResponses";
@@ -5,7 +6,7 @@ import { genCandidateToken } from "@/utils/tokens/CandidateTokenProcesses";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 
-// connectDB();
+await connectDB();
 export async function POST(request) {
     try {
 
@@ -28,21 +29,11 @@ export async function POST(request) {
                 if (!checkUserExists.success) return apiErrResponse(false, 400, "User with this cnic not exists");
                 else {
 
-
-
-
                     // checking if the user password is mathing or not 
                     const checkingPassword = await bcrypt.compare(password, checkUserExists.data.password);
 
-
-
                     if (!checkingPassword) return apiErrResponse(false, 400, "Password is incorrect!");
-
-
-
                     else {
-
-
                         const response = new NextResponse();
                         const { _id, cnic, fullname } = checkUserExists.data;
                         // generate token 

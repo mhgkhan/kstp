@@ -1,12 +1,24 @@
 import EnvObjs from "@/config/FreezeEnvs";
-import mongoose from "mongoose";
+import mongoose, { connection } from "mongoose";
 import { NextResponse } from "next/server";
 
-export const connectDB = async ()=> {
+export default async function connectDB() {
     try {
-        const connect = await mongoose.connect(EnvObjs.DBURI)  
+
+        // const conn = connection || null;
+
+        // if (conn) {
+        //     console.log("Already connected")
+        //     return
+        // }
+        // else {
+        // }
+
+        const connect = await mongoose.connect(`${EnvObjs.DBURI}`)
         console.log("database connected")
+
     } catch (error) {
-        return NextResponse.json({success:false, message:"DB Connection Error   "})
+        console.log(error);
+        return NextResponse.json({ success: false, message: "DB Connection Error   " })
     }
 }
