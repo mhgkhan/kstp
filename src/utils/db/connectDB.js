@@ -13,10 +13,8 @@ export default async function connectDB() {
         // }
         // else {
         // }
-
         const connect = await mongoose.connect(`${EnvObjs.DBURI}`)
         console.log("database connected")
-
     } catch (error) {
         console.log(error);
         return NextResponse.json({ success: false, message: "DB Connection Error   " })

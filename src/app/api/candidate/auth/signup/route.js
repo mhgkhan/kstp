@@ -9,38 +9,38 @@ import { NextResponse } from "next/server";
 
 await connectDB();
 export async function POST(request) {
-
-
+    
     try {
 
         const body = await request.json();
         const { fullname, cnic, password, cpassword } = body;
 
-        if (!fullname || !cnic || !password || fullname.length < 2 || cnic.length < 12 || password.length < 5 || password!==cpassword) return apiErrResponse(false, 401, "Recieved Credientials are not valid");
+        if (!fullname || !cnic || !password || fullname.length < 2 || cnic.length < 12 || password.length < 5) return apiErrResponse(false, 401, "Recieved Credientials are not valid");
         else {
-
-            const checkExistsUser = await checkUserExistssByCnic(cnic);
-            console.log(checkExistsUser);
-
-            if (checkExistsUser.error) return serverErrResponse({ message: checkExistsUser.message });
+            if (password !== cpassword) return apiErrResponse(false, 401, "Confirm password not matching");
             else {
 
-                if (checkExistsUser.success) return apiErrResponse(false, 400, "This Cnic already registered");
+                const checkExistsUser = await checkUserExistssByCnic(cnic);
+
+                if (checkExistsUser.error) return serverErrResponse({ message: checkExistsUser.message });
                 else {
 
-                    const encryptPassword = await bcrypt.hash(password, 10);
+                    if (checkExistsUser.success) return apiErrResponse(false, 400, "This Cnic already registered");
+                    else {
+                        const encryptPassword = await bcrypt.hash(password, 10);
 
-                    // saving this data into the datababse 
-                    const saveData = studentAccount({cnic, fullname, password:encryptPassword})
-                    await saveData.save();
+                        // saving this data into the datababse 
+                        const saveData = studentAccount({ cnic, fullname, password: encryptPassword })
+                        await saveData.save();
 
-                    const response = new NextResponse();
-                    // creating token 
-                    const payload = {id:saveData._id,cnic:saveData.cnic,name:saveData.name}
-                    const token = genCandidateToken(payload);
-                    response.cookies.set("CANDIDATEAUTHTOKEN", token,{httpOnly:true, secure:true});
-                    return apiSuccessResponse(true, 201, "Registered Sucessfully", null);
-                    // return NextResponse.json({ encryptPassword, realPassword: password, data:saveData, token })
+                        const response = new NextResponse();
+                        // creating token 
+                        const payload = { id: saveData._id, cnic: saveData.cnic, name: saveData.name }
+                        const token = genCandidateToken(payload);
+                        response.cookies.set("CANDIDATEAUTHTOKEN", token, { httpOnly: true, secure: true });
+                        return apiSuccessResponse(true, 201, "Registered Sucessfully", null);
+                        // return NextResponse.json({ encryptPassword, realPassword: password, data:saveData, token })
+                    }
                 }
             }
         }

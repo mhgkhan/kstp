@@ -9,30 +9,26 @@ import { NextResponse } from "next/server";
 await connectDB();
 export async function POST(request) {
     try {
-
         const body = await request.json();
-
         const { cnic, password } = body;
 
         // checking if user data is valid or not 
         if (!cnic || cnic.length < 12 || !password || password.length < 5) return apiErrResponse(false, 401, "Invilid credientials");
         else {
-
             // checking if user is exists in the database or not 
             const checkUserExists = await checkUserExistssByCnic(cnic);
-
-
+            // if user is exists 
             if (checkUserExists.error) return serverErrResponse(checkUserExists.message);
-
             else {
+                // if not exists 
 
                 if (!checkUserExists.success) return apiErrResponse(false, 400, "User with this cnic not exists");
                 else {
-
                     // checking if the user password is mathing or not 
                     const checkingPassword = await bcrypt.compare(password, checkUserExists.data.password);
-
+                    // if password is incorrect 
                     if (!checkingPassword) return apiErrResponse(false, 400, "Password is incorrect!");
+                    // if password is correct 
                     else {
                         const response = new NextResponse();
                         const { _id, cnic, fullname } = checkUserExists.data;
@@ -45,7 +41,6 @@ export async function POST(request) {
                 }
             }
         }
-
     } catch (error) {
         return serverErrResponse(error);
     }
