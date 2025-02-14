@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { defType } from "./StudentApply";
+import { defType } from "./StudentPersonalinfo";
 
 
 const studentResultStr = mongoose.Schema({
