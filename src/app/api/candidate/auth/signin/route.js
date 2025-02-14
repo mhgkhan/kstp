@@ -34,6 +34,8 @@ export async function POST(request) {
                         const { _id, cnic, fullname } = checkUserExists.data;
                         // generate token 
                         const token = genCandidateToken({ _id, cnic, name: fullname });
+                        console.log(token);
+                        
                         response.cookies.set("CANDIDATEAUTHTOKEN", token);
 
                         return apiSuccessResponse(true, 200, "Signin sucessfully", { token })
