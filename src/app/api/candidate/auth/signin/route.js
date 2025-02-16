@@ -21,6 +21,7 @@ export async function POST(request) {
             if (checkUserExists.error) return serverErrResponse({message:checkUserExists.message});
             else {
                 // if not exists 
+                // xyz 
 
                 if (!checkUserExists.success) return apiErrResponse(false, 400, "User with this cnic not exists");
                 else {
@@ -38,7 +39,7 @@ export async function POST(request) {
                         
                         response.cookies.set("CANDIDATEAUTHTOKEN", token);
 
-                        return apiSuccessResponse(true, 200, "Signin sucessfully", { token })
+                        return apiSuccessResponse(true, 200, "Signin sucessfully", null)
                     }
                 }
             }
