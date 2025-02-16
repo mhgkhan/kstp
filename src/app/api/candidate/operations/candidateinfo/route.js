@@ -76,7 +76,7 @@ export async function PUT(request) {
                 if (!checkUser.success) return apiErrResponse(false, 401, "unAuthorize User");
                 else {
                     try {
-                        const checkInfoIntheInfoModel = await StudentInfoModel.findOneAndUpdate({ accountId: checkUser.id }, { ...dataObj });
+                        const checkInfoIntheInfoModel = await StudentInfoModel.findOneAndUpdate({ accountId: checkUser.id }, { $set: { ...dataObj } }, { new: true });
                         return apiSuccessResponse(true, 201, "Information has been updated.")
                     } catch (error) {
                         return serverErrResponse(error)
