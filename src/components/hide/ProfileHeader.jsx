@@ -5,8 +5,10 @@ import Logo from '../ui/Logo'
 import { FaCaretDown, FaCaretUp, FaUser } from 'react-icons/fa'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
-const ProfileHeader = () => {
+const ProfileHeader = ({name}) => {
+    const router = useRouter()
 
     const [openedLogout, setOpenedLogout] = useState(false)
 
@@ -21,10 +23,12 @@ const ProfileHeader = () => {
             <div className="container mx-auto flex items-end justify-between relative">
                 <Logo />
                 <div className="logout-section relative mx-2">
-                    <div onClick={() => setOpenedLogout(!openedLogout)} className="hover:bg-cyan-400 hover:text-black transition-all duration-200 cursor-pointer flex items-center justify-center gap-3 p-2 openlogout  bg-cyan-600 rounded-md text-white font-bold">Profile {openedLogout ? <FaCaretUp /> : <FaCaretDown />}</div>
-                    <div className={` transition-all duration-300 ${openedLogout ? "h-[100px] p-1" : "h-0 p-0"} dailog-items mt-5 absolute bg-cyan-500  top-6 rounded-md overflow-hidden`}>
-                        <Link href={'/profile'} className='flex items-center justify-center gap-1 bg-cyan-700 rounded-md text-white font-bold p-2 my-1 '><FaUser /> Profile </Link>
-                        <Link href={'/profile'} className='flex items-center justify-center gap-1 bg-cyan-700 rounded-md text-white font-bold p-2 my-1 '><FaUser /> Logout </Link>
+                    <div onClick={() => setOpenedLogout(!openedLogout)} className="hover:bg-cyan-400 hover:text-black transition-all duration-200 cursor-pointer flex items-center justify-center gap-3 p-2 openlogout  bg-cyan-600 rounded-md text-white font-bold">{name} {openedLogout ? <FaCaretUp /> : <FaCaretDown />}</div>
+                    <div className={` transition-all duration-300 ${openedLogout ? "h-[100px] p-1" : "h-0 p-0"} dailog-items mt-5 absolute bg-cyan-500  top-6 rounded-md overflow-hidden w-full`}>
+                        <Link href={'/profile'} className='flex items-center justify-center gap-1 bg-cyan-700 rounded-md text-white font-bold p-2 my-1  w-full text-center'><FaUser /> Profile </Link>
+                        <button onClick={()=>{
+                            router.push("/api/logout")
+                        }} className='flex items-center justify-center gap-1 bg-cyan-700 rounded-md text-white font-bold p-2 my-1  w-full text-center'><FaUser /> Logout </button>
                     </div>
                 </div>
             </div>

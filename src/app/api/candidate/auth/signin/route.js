@@ -1,7 +1,7 @@
 import connectDB from "@/utils/db/connectDB";
 import { checkUserExistssByCnic } from "@/utils/db/filters/checkExists";
 import { apiErrResponse, serverErrResponse } from "@/utils/responses/errResponses";
-import { apiSuccessResponse } from "@/utils/responses/successResponses";
+// import { apiSuccessResponse } from "@/utils/responses/successResponses";
 import { genCandidateToken } from "@/utils/tokens/CandidateTokenProcesses";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
@@ -18,7 +18,7 @@ export async function POST(request) {
             // checking if user is exists in the database or not 
             const checkUserExists = await checkUserExistssByCnic(cnic);
             // if user is exists 
-            if (checkUserExists.error) return serverErrResponse({message:checkUserExists.message});
+            if (checkUserExists.error) return serverErrResponse({ message: checkUserExists.message });
             else {
                 // if not exists 
                 // xyz 
@@ -31,15 +31,21 @@ export async function POST(request) {
                     if (!checkingPassword) return apiErrResponse(false, 400, "Password is incorrect!");
                     // if password is correct 
                     else {
-                        const response = new NextResponse();
+                        const response = NextResponse.json({success:true, message:"User logged sucessfully", data:null})
                         const { _id, cnic, fullname } = checkUserExists.data;
                         // generate token 
                         const token = genCandidateToken({ _id, cnic, name: fullname });
-                        console.log(token);
-                        
-                        response.cookies.set("CANDIDATEAUTHTOKEN", token);
 
-                        return apiSuccessResponse(true, 200, "Signin sucessfully", null)
+                        response.cookies.set("CANDIDATEAUTHTOKEN", token, {
+                            secure: true,
+                            httpOnly: true,
+                            name: "CANDIDATEAUTHTOKEN"
+                        });
+                        // response.cookies.set("CANDIDATE")
+
+
+                        // return apiSuccessResponse(true, 200, "Signin sucessfully", null)
+                        return response;
                     }
                 }
             }

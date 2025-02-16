@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { FaArrowLeft, FaArrowRight, FaCircleNotch, FaCopy, FaTrophy } from 'react-icons/fa'
 import { GrDashboard, GrEdit, GrKey, } from 'react-icons/gr'
 
-const ProfileSidebar = () => {
+const CandidateProfileSidebar = () => {
 
     const [openedSidebar, setOpenedSidebar] = useState(false)
 
@@ -18,12 +18,12 @@ const ProfileSidebar = () => {
             <div className="mt-5">
                 {
                     Array.from([
-                        { link: "/profile", icon: <GrDashboard className='text-3xl' />, text: "Dashboard" },
-                        { link: "/profile/personalinfo", icon: <GrEdit className='text-3xl' />, text: "User Info" },
-                        { link: "/profile/changepassword", icon: <GrKey className='text-3xl' />, text: "Password" },
-                        { link: "/profile/apply", icon: <FaCopy className='text-3xl' />, text: "Apply" },
-                        { link: "/profile/applications/", icon: <FaCircleNotch className='text-3xl' />, text: "Applications" },
-                        { link: "/profile/achevements", icon: <FaTrophy className='text-3xl' />, text: "Achevements" },
+                        { link: "/candidate", icon: <GrDashboard className='text-3xl' />, text: "Dashboard" },
+                        { link: "/candidate/personalinfo", icon: <GrEdit className='text-3xl' />, text: "User Info" },
+                        { link: "/candidate/changepassword", icon: <GrKey className='text-3xl' />, text: "Password" },
+                        { link: "/candidate/apply", icon: <FaCopy className='text-3xl' />, text: "Apply" },
+                        { link: "/candidate/applications/", icon: <FaCircleNotch className='text-3xl' />, text: "Applications" },
+                        { link: "/candidate/achevements", icon: <FaTrophy className='text-3xl' />, text: "Achevements" },
                     ]).map((ele, ind) => {
                         return <Link key={ind} href={ele.link} className='my-2 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                             {ele.icon}
@@ -36,4 +36,4 @@ const ProfileSidebar = () => {
     )
 }
 
-export default ProfileSidebar
+export default CandidateProfileSidebar

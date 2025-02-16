@@ -19,7 +19,7 @@ export default function Login() {
                 <div className="login-form">
 
 
-                <CandidateLoginForm apiPath={EnvObjs.apiDOMAIN} />
+                <CandidateLoginForm />
 
                   <div className="my-3 w-full flex items-center justify-between flex-wrap-reverse gap-1">
                     <p>Not have an account <Link className="text-blue-600 hover:underline" href={"/"}>Signup</Link></p>

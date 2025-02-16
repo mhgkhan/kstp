@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function middleware(request) {
 
     if (request.nextUrl.pathname.startsWith("/candidate")) {
-        if (request.cookies.has("CANDIDATETOKEN")) {
+        if (request.cookies.has("CANDIDATEAUTHTOKEN")) {
             return NextResponse.next();
         }
         else {

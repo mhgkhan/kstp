@@ -7,8 +7,12 @@ import { FaKey, FaUser } from "react-icons/fa";
 import { TiWarningOutline } from 'react-icons/ti';
 import { postApiCall } from '../functions/ApiCall';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
-function CandidateLoginForm({ apiPath }) {
+function CandidateLoginForm() {
+
+
+    const router = useRouter();
 
     const [formInputs, setFormInputs] = useState({ cnic: "", password: "" });
     const [isValid, setIsValid] = useState({ cnic: true, password: true });
@@ -38,6 +42,8 @@ function CandidateLoginForm({ apiPath }) {
     const [resMsg, setResMsg] = useState(null);
     const [recieveData, setRecieveData] = useState(null)
 
+    const [successRes, setSuccessRes] = useState(false);
+
     const submitLoginForm = async e => {
         e.preventDefault();
         checkValidation();
@@ -59,7 +65,9 @@ function CandidateLoginForm({ apiPath }) {
                 else {
                     response.isResErr = false;
                     response.resMsg = request.message;
-                    response.data = request.data
+                    response.data = request.data;
+                    response.succed = true;
+                    setSuccessRes(true)
                 }
             }
 
@@ -72,6 +80,9 @@ function CandidateLoginForm({ apiPath }) {
             setIsResErr(response.isResErr);
             setRecieveData(response.data);
             response.isResErr ? toast.error(response.resMsg) : toast.success(response.resMsg);
+            if(response.succed){
+                return router.push("/candidate")
+            }
         }
     }
 
@@ -79,7 +90,7 @@ function CandidateLoginForm({ apiPath }) {
     return (
         <>
             <Toaster />
-            {isResErr ? <div onClick={()=> setIsResErr(false)} className={`transition-all duration-300 p-2 rounded-md text-white font-bold ${isResErr ? "bg-red-800" : "bg-green-800"} flex items-center gap-1`}>{resMsg}</div> : ""}
+            {isResErr ? <div onClick={() => setIsResErr(false)} className={`transition-all duration-300 p-2 rounded-md text-white font-bold ${isResErr ? "bg-red-800" : "bg-green-800"} flex items-center gap-1`}>{resMsg}</div> : ""}
             <form className="my-1" onSubmit={submitLoginForm} method="post">
                 <Input Icon={FaUser} type={'number'} name={'cnic'} onchange={onchangeInput} value={formInputs.cnic} disable={loading} key={122} required={true} placeholder={'Enter CNIC/Form-B'} />
                 {!isValid.cnic ? <span className="text-red-900 font-bold text-sm px-1 text-center flex items-center justify-center gap-1"><TiWarningOutline /> Cnic is not valid </span> : ""}
