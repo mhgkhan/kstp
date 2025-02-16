@@ -25,7 +25,7 @@ const ProfileSidebar = () => {
                         { link: "/profile/applications/", icon: <FaCircleNotch className='text-3xl' />, text: "Applications" },
                         { link: "/profile/achevements", icon: <FaTrophy className='text-3xl' />, text: "Achevements" },
                     ]).map((ele, ind) => {
-                        return <Link key={ind} href={ele.link} className='my-5 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
+                        return <Link key={ind} href={ele.link} className='my-2 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                             {ele.icon}
                             {openedSidebar ? ele.text : ""}
                         </Link>

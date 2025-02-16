@@ -34,7 +34,7 @@ const page = () => {
           {
             Array.from([
               { link: "/profile/userid/", icon: <CgProfile />, text: "View Profile" },
-              { link: "/profile/editinfo/", icon: <FaUserEdit />, text: "Edit Profile" },
+              { link: "/profile/personalinfo/", icon: <FaUserEdit />, text: "Edit Profile" },
               { link: "/profile/changepassword/", icon: <CgPassword />, text: "Change Password" },
               { link: "/profile/apply/", icon: <FaPaperPlane />, text: "Apply for test" },
             ]).map((ele, ind) => {
