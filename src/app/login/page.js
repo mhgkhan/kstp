@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import CandidateLoginForm from "@/components/ui/forms/CandidateLoginForm";
 import SectionHeading from "@/components/ui/SectionHeading";
-import EnvObjs from "@/config/FreezeEnvs";
 import Link from "next/link";
 
 export default function Login() {
@@ -22,7 +21,7 @@ export default function Login() {
                 <CandidateLoginForm />
 
                   <div className="my-3 w-full flex items-center justify-between flex-wrap-reverse gap-1">
-                    <p>Not have an account <Link className="text-blue-600 hover:underline" href={"/"}>Signup</Link></p>
+                    <p>Not have an account <Link className="text-blue-600 hover:underline" href={"/register"}>Register</Link></p>
                     <Link className="text-blue-600 hover:underline" href={"/"}>Forget Password</Link>
                   </div>
 
