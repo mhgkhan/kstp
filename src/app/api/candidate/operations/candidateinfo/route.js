@@ -15,7 +15,7 @@ export async function POST(request) {
         else {
             const { image, fatherName, gender, fatherPhone, dateofBirth, district, address, tehsil, schoolName, schoolClass, schoolRollno, schoolAddress } = body;
             for (i = 0; i < Object.keys(body).length > 15 ? 15 : Object.keys(body).length; i++) {
-                if (Object.values(body)[i].length < 2) return apiErrResponse(false, 401, "Recieved data is not valid! please check fields ");
+                if (Object.values(body)[i].length < 2 || Object.values(body)[i].length > 120) return apiErrResponse(false, 400, "Recieved data is not valid! please check fields ");
             }
             // checking and verifying the token 
             const thisCookie = candidateCookie.value;
@@ -26,14 +26,19 @@ export async function POST(request) {
                 const checkIfExists = await checkUserExistssByCnic(decryptToken.cnic);
                 if (checkIfExists.error) return serverErrResponse(checkIfExists.message);
                 else {
-                    if (!checkIfExists.success) return apiErrResponse(false, 400, "Unauthorize User");
+                    if (!checkIfExists.success) return apiErrResponse(false, 401, "Unauthorize User");
                     else {
-                        const recievedData = { fatherName, gender, fatherPhone, dateofBirth, district, address, tehsil, schoolName, schoolClass, schoolRollno, schoolAddress, accountId: decryptToken.id, image };
-                        const savingCandidateInfo = StudentInfoModel({
-                            ...recievedData
-                        })
-                        await savingCandidateInfo.save();
-                        return apiSuccessResponse(true, 201, "Candidate Information Updated", savingCandidateInfo);
+                        // checking if user data is already exists or not 
+                        const checkUserInfo = await StudentInfoModel.findOne({ accountId: decryptToken.id });
+                        if (checkUserInfo) return apiErrResponse(false, 400, "Your information is already avaliable");
+                        else {
+                            const recievedData = { fatherName, gender, fatherPhone, dateofBirth, district, address, tehsil, schoolName, schoolClass, schoolRollno, schoolAddress, accountId: decryptToken.id, image };
+                            const savingCandidateInfo = StudentInfoModel({
+                                ...recievedData
+                            })
+                            await savingCandidateInfo.save();
+                            return apiSuccessResponse(true, 201, "Candidate Information Updated", savingCandidateInfo);
+                        }
                     }
                 }
             }
@@ -45,7 +50,44 @@ export async function POST(request) {
 
 
 export async function PUT(request) {
-    return apiSuccessResponse(true, 201, "Updated", { message: "hello" })
+
+    try {
+
+        const UserCookie = (await cookies()).get("CANDIDATEAUTHTOKEN");
+        if (!UserCookie) return apiErrResponse(false, 401, "you need to login");
+
+        else {
+            const body = await request.json();
+            for (i = 0; i < Object.keys(body).length > 15 ? 15 : Object.keys(body).length; i++) {
+                if (Object.values(body)[i].length < 2 || Object.values(body)[i].length > 120) return apiErrResponse(false, 400, "Recieved data is not valid! please check fields ");
+            }
+
+            const { fatherName, gender, fatherPhone, dateofBirth, district, address, tehsil, schoolName, schoolClass, schoolRollno, schoolAddress, image } = body;
+            const dataObj = { fatherName, gender, fatherPhone, dateofBirth, district, address, tehsil, schoolName, schoolClass, schoolRollno, schoolAddress, image };
+
+            // checking if token is valid or not 
+            const checkToken = decrCandidateToken(UserCookie.value);
+            const { cnic, id } = checkToken;
+
+            // checking if the id or cninc is exists or not 
+            const checkUser = await checkUserExistssByCnic(cnic);
+            if (checkUser.error) return serverErrResponse(error);
+            else {
+                if (!checkUser.success) return apiErrResponse(false, 401, "unAuthorize User");
+                else {
+                    try {
+                        const checkInfoIntheInfoModel = await StudentInfoModel.findOneAndUpdate({ accountId: checkUser.id }, { ...dataObj });
+                        return apiSuccessResponse(true, 201, "Information has been updated.")
+                    } catch (error) {
+                        return serverErrResponse(error)
+                    }
+                }
+            }
+        }
+
+    } catch (error) {
+        return serverErrResponse(error);
+    }
 }
 
 export async function GET(request) {
@@ -54,7 +96,7 @@ export async function GET(request) {
         const userCookie = (await cookies()).get("CANDIDATEAUTHTOKEN");
         // verifying the cookie 
         const verifyToken = decrCandidateToken(userCookie.value);
-        if (!verifyToken.id || !verifyToken.cnic || !verifyToken.name) return apiErrResponse(false, 401, "You need to login again");
+        if (!verifyToken.id || !verifyToken.cnic || !verifyToken.name) return apiErrResponse(false, 401, "You need to login first");
         else {
             // checking if the user is exists or not 
             const checkExists = await checkUserExistssByCnic(verifyToken.cnic);

@@ -18,7 +18,7 @@ export async function POST(request) {
             // checking if user is exists in the database or not 
             const checkUserExists = await checkUserExistssByCnic(cnic);
             // if user is exists 
-            if (checkUserExists.error) return serverErrResponse(checkUserExists.message);
+            if (checkUserExists.error) return serverErrResponse({message:checkUserExists.message});
             else {
                 // if not exists 
 
