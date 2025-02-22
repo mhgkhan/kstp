@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 const CandidateRegisterationForm = () => {
 
     const router = useRouter();
-    
+
     const [formInputs, setFormInputs] = useState({ name: "", cnic: "", password: "", cpassword: "" });
 
 
@@ -89,7 +89,7 @@ const CandidateRegisterationForm = () => {
                 }} Icon={FaUser} onchange={(e) => {
                     changeInput(e)
                     e.target.value.length < 12 ? setIsvalidCnic(false) : setIsvalidCnic(true)
-                }} value={formInputs.cnic} name={'cnic'} type={"text"} required={true} placeholder={"Enter valid CNIC/Form-b"} disable={loading} />
+                }} value={formInputs.cnic} name={'cnic'} type={"number"} required={true} placeholder={"Enter valid CNIC/Form-b"} disable={loading} />
                 {!isValidCnic ? <span className="text-red-900 font-bold text-sm px-1 text-center flex items-center justify-center gap-1"><TiWarningOutline /> Cnic is not valid </span> : ""}
                 <Input
                     onblue={(e) => {
