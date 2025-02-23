@@ -34,7 +34,7 @@ export async function POST(request) {
                         await saveData.save();
 
                         // creating token 
-                        const payload = { id: saveData._id, cnic: saveData.cnic, name: saveData.name }
+                        const payload = { id: saveData._id, cnic: saveData.cnic, name: saveData.fullname }
                         const token = genCandidateToken(payload);
                         response.cookies.set("CANDIDATEAUTHTOKEN", token, {
                             secure: true,
