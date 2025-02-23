@@ -9,7 +9,7 @@ import { postApiCall } from '../functions/ApiCall';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
-function CandidateLoginForm() {
+function CandidateLoginForm({domain}) {
 
 
     const router = useRouter();
@@ -51,7 +51,7 @@ function CandidateLoginForm() {
         const response = {}
         try {
             // submitting 
-            const request = await postApiCall("api/candidate/auth/signin", formInputs);
+            const request = await postApiCall(`${domain}api/candidate/auth/signin`, formInputs);
 
             if (request.error) {
                 response.isResErr = true;

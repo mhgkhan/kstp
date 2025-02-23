@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import CandidateRegisterationForm from "@/components/ui/forms/CandidateRegisterationForm";
 
 import SectionHeading from "@/components/ui/SectionHeading";
+import EnvObjs from "@/config/FreezeEnvs";
 import Link from "next/link";
 
 export default function Register() {
@@ -27,7 +28,7 @@ export default function Register() {
                 <div className="register-form">
 
 
-                  <CandidateRegisterationForm />
+                  <CandidateRegisterationForm domain={EnvObjs.apiDOMAIN} />
 
                   <div className="my-3 w-full flex items-center justify-between flex-wrap-reverse gap-1">
                     <p>Already have an account <Link className="text-blue-600 hover:underline" href={"/login"}>Login</Link></p>

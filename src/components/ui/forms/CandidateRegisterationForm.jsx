@@ -9,7 +9,7 @@ import { postApiCall } from '../functions/ApiCall';
 import { useRouter } from 'next/navigation';
 
 
-const CandidateRegisterationForm = () => {
+const CandidateRegisterationForm = ({domain}) => {
 
     const router = useRouter();
 
@@ -45,7 +45,7 @@ const CandidateRegisterationForm = () => {
         else {
             const response = {};
             try {
-                const request = await postApiCall("api/candidate/auth/signup", formInputs);
+                const request = await postApiCall(`${domain}api/candidate/auth/signup`, formInputs);
                 if (request.error) {
                     response.isResErr = true;
                     response.resMsg = request.message;

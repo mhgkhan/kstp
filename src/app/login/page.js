@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import CandidateLoginForm from "@/components/ui/forms/CandidateLoginForm";
 import SectionHeading from "@/components/ui/SectionHeading";
+import EnvObjs from "@/config/FreezeEnvs";
 import Link from "next/link";
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
                 <div className="login-form">
 
 
-                <CandidateLoginForm />
+                <CandidateLoginForm domain={EnvObjs.apiDOMAIN}/>
 
                   <div className="my-3 w-full flex items-center justify-between flex-wrap-reverse gap-1">
                     <p>Not have an account <Link className="text-blue-600 hover:underline" href={"/register"}>Register</Link></p>
@@ -33,7 +34,6 @@ export default function Login() {
 
                   <Link href={'/'} className="p-3 block text-center text-lg text-white font-bold bg-cyan-950 w-full my-2 rounded-md hover:bg-cyan-700">Institute Login </Link>
                   {/* <Link href={'/'} className="p-3 block text-center text-lg text-white font-bold bg-cyan-950 w-full my-2 rounded-md hover:bg-cyan-700">Admin Login </Link> */}
-
 
                 </div>
               </div>

@@ -3,7 +3,7 @@ import EnvObjs from "@/config/FreezeEnvs"
 export const postApiCall = async function (path, data) {
     try {
 
-        const request = await fetch(`${EnvObjs.apiDOMAIN}${path}`, {
+        const request = await fetch(path, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
