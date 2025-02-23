@@ -74,7 +74,9 @@ const CandidateRegisterationForm = ({domain}) => {
                 setRecieveData(response.data);
                 response.isResErr ? toast.error(response.resMsg) : toast.success(response.resMsg);
                 if (response.succed) {
-                    return router.push("/candidate")
+                    setTimeout(() => {
+                        return router.push("/candidate")
+                    }, 2000);
                 }
             }
         }
