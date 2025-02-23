@@ -7,8 +7,17 @@ import { FaPaperPlane, FaTrophy, FaUserEdit } from 'react-icons/fa'
 import { TiTickOutline } from "react-icons/ti";
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import SectionHeading from '@/components/ui/SectionHeading'
+import { cookies } from 'next/headers'
+import { decrCandidateToken } from '@/utils/tokens/CandidateTokenProcesses'
 
-const page = () => {
+const page = async () => {
+
+   const candidateCookies = await cookies();
+      const token = candidateCookies.get("CANDIDATEAUTHTOKEN");
+  
+      const decry = decrCandidateToken(token.value);
+  //  console.log(decry)
+
   return <div>
     <section className='w-full bg-white shadow-md shadow-gray-500 rounded-md'>
       <div className='container mx-auto flex items-center justify-around flex-wrap-reverse'>
@@ -16,11 +25,11 @@ const page = () => {
         <div className='text p-2 flex items-center justify-center flex-col'>
           <SectionHeading heading={"Welcome Back"} paragraph={" "} />
           {/* <h1 className={`md:text-4xl text-2xl font-bold my-1 text-center ${Signika_Font.className}`}>Welcome Back </h1> */}
-          <h2 className={`md:text-3xl text-xl font-bold text-cyan-700 my-1 text-center ${Signika_Font.className}`}>Muhammad Hasnain </h2>
+          <h2 className={`md:text-3xl text-xl font-bold text-cyan-700 my-1 text-center ${Signika_Font.className}`}> {decry.name} </h2>
         </div>
 
         <div className='profile-image md:w-[180px] md:h-[210px] w-[100px] h-[120px] bg-cyan-50 border border-2 border-cyan-50 my-1 rounded-md shadow-sm shadow-gray-400'>
-          <Image src={"/images/profile.jpg"} width={150} height={180} className='w-full h-full' alt='profile image' />
+          <Image src={"/images/user.jpg"} width={150} height={180} className='w-full h-full' alt='profile image' />
         </div>
       </div>
     </section>
