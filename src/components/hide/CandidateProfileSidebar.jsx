@@ -23,7 +23,7 @@ const CandidateProfileSidebar = () => {
                         { link: "/candidate/changepassword", icon: <GrKey className='text-3xl' />, text: "Password" },
                         { link: "/candidate/apply", icon: <FaCopy className='text-3xl' />, text: "Apply" },
                         { link: "/candidate/applications/", icon: <FaCircleNotch className='text-3xl' />, text: "Applications" },
-                        { link: "/candidate/achevements", icon: <FaTrophy className='text-3xl' />, text: "Achevements" },
+                        { link: "/candidate/tests/achevements", icon: <FaTrophy className='text-3xl' />, text: "Achevements" },
                     ]).map((ele, ind) => {
                         return <Link key={ind} href={ele.link} className='my-2 flex w-full items-center justify-start gap-3 p-2 text-white bg-cyan-600 rounded-md font-bold'>
                             {ele.icon}
