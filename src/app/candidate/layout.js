@@ -7,9 +7,8 @@ import { decrCandidateToken } from "@/utils/tokens/CandidateTokenProcesses";
 export default async function ProfileLayout({ children }) {
     const candidateCookies = await cookies();
     const token = candidateCookies.get("CANDIDATEAUTHTOKEN");
-
     const decry = decrCandidateToken(token.value);
- console.log(decry)
+//  console.log(decry)
 
 
     return (

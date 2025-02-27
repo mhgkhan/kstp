@@ -20,12 +20,10 @@ const CandidateRegisterationForm = ({domain}) => {
     const [isValidName, setIsValidName] = useState(true)
     const [isValidPassword, setIsValidPassword] = useState(true)
     const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true)
-
     const [isConfirmMatched, setIsConfirmMatched] = useState(true)
-
-
     const checkConfirmPassword = () => setIsConfirmMatched(formInputs.password == formInputs.cpassword)
 
+    
     const changeInput = e => {
         setFormInputs({ ...formInputs, [e.target.name]: e.target.value })
     }

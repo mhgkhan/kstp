@@ -28,6 +28,7 @@ const page = async () => {
           <h2 className={`md:text-3xl text-xl font-bold text-cyan-700 my-1 text-center ${Signika_Font.className}`}> {decry.name} </h2>
         </div>
 
+        
         <div className='profile-image md:w-[180px] md:h-[210px] w-[100px] h-[120px] bg-cyan-50 border border-2 border-cyan-50 my-1 rounded-md shadow-sm shadow-gray-400'>
           <Image src={"/images/user.jpg"} width={150} height={180} className='w-full h-full' alt='profile image' />
         </div>

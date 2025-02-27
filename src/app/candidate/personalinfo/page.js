@@ -1,10 +1,16 @@
+import StudentInfoForm from '@/components/ui/forms/StudentInfoForm'
+import SectionHeading from '@/components/ui/SectionHeading'
 import React from 'react'
+
 
 const page = () => {
   return (
-    <div>
-     <h1 className='text-3xl font-bold'>Add your personal info </h1> 
-    </div>
+    <section className='w-full'>
+      <div className='container mx-auto'>
+        <SectionHeading heading={'About you!'} paragraph={'Enter your valid personal info.'} />
+        <StudentInfoForm />
+      </div>
+    </section>
   )
 }
 

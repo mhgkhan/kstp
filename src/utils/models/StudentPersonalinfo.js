@@ -17,13 +17,13 @@ const studentPersonalInfoStr = mongoose.Schema({
     gender: defType,
     fatherPhone: defType,
     dateOfBirth: defType,
-    tehsil:defType,
+    postalAddress:defType,
+    parmanentAddress: defType,
     district: {
         type: defType.type,
         default: "khyber"
     },
-    address: defType,
-
+    tehsil: defType,
 
     schoolName: defType,
     schoolClass: defType,

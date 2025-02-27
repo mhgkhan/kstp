@@ -7,12 +7,12 @@ const Logo = () => {
         <Link href={`/`} aria-label="Home">
             <div className="logo-area flex items-end justify-center gap-2 cursor-pointer" role="img" aria-label="KSTP Logo">
 
-                <div className="logo w-[70px] h-[70px] md:w-[80px] md:h-[80px] my-1 rounded-md">
+                <div className="logo w-[50px] h-[50px] md:w-[80px] md:h-[80px] my-1 rounded-md md:p-0 p-1">
                     <Image src={'/logo.png'} alt='KSTP LOGO' width={80} height={80} className='w-full h-full bg-white rounded-md' />
                 </div>
                 <div>
-                    <p className="md:text-xl text-lg font-bold text-white underline">KHYBER STUDENTS</p>
-                    <p className="md:text-xl text-lg font-bold text-white underline">TESTING PORTAL</p>
+                    <p className="md:text-xl text-sm font-bold text-white underline">KHYBER STUDENTS</p>
+                    <p className="md:text-xl text-sm font-bold text-white underline">TESTING PORTAL</p>
                 </div>
             </div>
         </Link>
